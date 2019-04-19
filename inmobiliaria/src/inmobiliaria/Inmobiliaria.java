@@ -9,7 +9,7 @@ import java.awt.Color;
 import java.sql.*;
 import javax.swing.*;
 import java.awt.*;
-import vistas.ventanaPrincipal;
+import vistas.VentanaPrincipal;
 /*
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -75,7 +75,7 @@ public class Inmobiliaria {
     public static void main(String[] args){
         //ventana vn = new ventana();
         //vn.mostrarVentana();
-        ventanaPrincipal vn1 = new ventanaPrincipal();
+        VentanaPrincipal vn1 = new VentanaPrincipal();
         vn1.setVisible(true);
     }
 }
