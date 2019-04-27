@@ -15,6 +15,7 @@ import javax.swing.JComboBox;
  * @author Ro
  */
 public class Ventana {
+    
     private JFrame Ventana;
     private JDialog Dialogo;
         
