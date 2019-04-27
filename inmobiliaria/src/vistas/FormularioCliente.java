@@ -135,6 +135,7 @@ public class FormularioCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void BotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonActionPerformed
+    //pruebas
         try {
             Conexion con = new Conexion("jdbc:mysql://localhost/basePrueba","root","");
             Persona pers = new Persona(jTextField1.getText(), Integer.valueOf(jTextField2.getText()), jTextField3.getText());
