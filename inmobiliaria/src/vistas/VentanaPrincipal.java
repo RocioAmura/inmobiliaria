@@ -138,11 +138,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void jMenuItem_AgregarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_AgregarClienteActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jMenuItem_AgregarClienteActionPerformed
-    private FormularioClientes c;
+    private FormularioCliente c;
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {                                           
         // TODO add your handling code here:
-        c = new FormularioClientes();
+        c = new FormularioCliente();
         c.setSize(100,100);
         c.setVisible(true);
         this.add(c);
