@@ -30,7 +30,7 @@ public class Inmobiliaria {
     /*public static void main(String[] args) {
         // TODO code application logic here
        try {
-        Conexion cn = new Conexion("jdbc:mysql://localhost/basePrueba","root","");
+        Conexion cn = new Conexion("jdbc:mysql://localhost/inmobiliaria","root","");
         PersonaData personaData = new PersonaData(cn);
         
         //Persona p = new Persona("Rogelio Funes", 24444444, "26539066668");
@@ -45,7 +45,7 @@ public class Inmobiliaria {
         //Conexion
         
        //Class.forName("org.mariadb.jdbc.Driver");
-       //String url = "jdbc:mysql://localhost/basePrueba";
+       //String url = "jdbc:mysql://localhost/inmobiliaria";
        //String user = "root";
        //String password = "";
        //Connection conexion =  DriverManager.getConnection(url, user, password);
@@ -89,6 +89,5 @@ public class Inmobiliaria {
         {
          System.out.println("Error al instanciar la clase conexion: " + e.getMessage());
         }*/
-        
     }
 }
