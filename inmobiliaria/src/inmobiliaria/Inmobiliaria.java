@@ -75,7 +75,11 @@ public class Inmobiliaria {
     public static void main(String[] args){
         //ventana vn = new ventana();
         //vn.mostrarVentana();
-        VentanaPrincipal vn1 = new VentanaPrincipal();
-        vn1.setVisible(true);
+        /*VentanaPrincipal vn1 = new VentanaPrincipal();
+        vn1.setVisible(true);*/
+           
+        /*Inmueble inm = new Inmueble("Av España 456", 5, true);
+        InmuebleData.guardarInmueble(inm);
+        System.out.println(inm.getId());*/
     }
 }
