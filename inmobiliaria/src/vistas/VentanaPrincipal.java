@@ -137,8 +137,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_bt_cerrarVentanaActionPerformed
 
     private void jMenuItem_AgregarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_AgregarClienteActionPerformed
-        // TODO add your handling code here:
-        
+     FormularioCliente cl = new FormularioCliente();
+     cl.crear();
     }//GEN-LAST:event_jMenuItem_AgregarClienteActionPerformed
     private FormularioCliente c;
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {                                           
