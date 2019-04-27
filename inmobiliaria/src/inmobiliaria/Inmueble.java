@@ -44,7 +44,7 @@ public class Inmueble {
         return direccion;
     }
     
-     public void setDireccion(String direccion) {
+    public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
 

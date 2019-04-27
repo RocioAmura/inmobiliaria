@@ -75,11 +75,20 @@ public class Inmobiliaria {
     public static void main(String[] args){
         //ventana vn = new ventana();
         //vn.mostrarVentana();
-        /*VentanaPrincipal vn1 = new VentanaPrincipal();
-        vn1.setVisible(true);*/
-           
-        /*Inmueble inm = new Inmueble("Av España 456", 5, true);
-        InmuebleData.guardarInmueble(inm);
-        System.out.println(inm.getId());*/
+        VentanaPrincipal vn1 = new VentanaPrincipal();
+        vn1.setVisible(true);
+        /*try {
+            Conexion cn = new Conexion("jdbc:mysql://localhost/inmobiliaria","root","");
+            InmuebleData inmdata = new InmuebleData(cn);
+
+            Inmueble inm = new Inmueble("Av España 456", 5, true);
+            inmdata.guardarInmueble(inm);
+            System.out.println(inm.getId());
+        }
+        catch(Exception e) //Generalmente hay un catch para detectar los errores.
+        {
+         System.out.println("Error al instanciar la clase conexion: " + e.getMessage());
+        }*/
+        
     }
 }
