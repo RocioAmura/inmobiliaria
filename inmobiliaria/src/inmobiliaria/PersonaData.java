@@ -54,10 +54,10 @@ public class PersonaData {
     
     public void eliminarPersona(Persona persona){
         try{
-            String sql = "DELETE FROM persona WHERE (nombreCompleto) = ?)";
+            String sql = "DELETE FROM persona WHERE (id) = ?)";
             
             PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setString(1, persona.getNombreCompleto());
+            pstmt.setInt(1, persona.getId());
             
             pstmt.executeUpdate();
             
@@ -68,25 +68,7 @@ public class PersonaData {
         }
         
     }
-    
-    public void eliminarPersonaByDocumento (Persona persona){
-        try{
-            
-            String sql = "DELETE FROM persona WHERE (documento) VALUES = ?)";
-            
-            
-            PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setInt(1, persona.getDocumento());
-            
-            pstmt.executeUpdate();
-           
-            pstmt.close();
-            } 
-        catch(SQLException ex){
-            System.out.println("Error al eliminar una persona: " + ex.getMessage());
-        }
-    }
-    
+      
     public Persona obtenerPersonas (String nombreCompleto){
         
         Persona p;

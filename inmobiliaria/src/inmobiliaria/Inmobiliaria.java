@@ -39,7 +39,7 @@ public class Inmobiliaria {
         
         personaData.obtenerPersonas().forEach(persona -> {
                 System.out.println("Nombre: " + persona.getNombreCompleto() );
-            });
+            };
                  
                 
         //Conexion
