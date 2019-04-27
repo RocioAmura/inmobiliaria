@@ -59,23 +59,7 @@ public class InmuebleData {
         }
     }
     
-    public void eliminarInmueble(Inmueble inmueble){
-        try{
-            String sql = "DELETE FROM persona WHERE (direccion) VALUES =?)";
-            
-            PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setString(1, inmueble.getDireccion());
-            
-            pstmt.executeUpdate();
-            
-            pstmt.close();
-        }
-        catch (SQLException ex){
-            System.out.println("Error al eliminar un inmueble: " + ex.getMessage());
-        }
-    }
-    
-    public void eliminarInmuebleById (Inmueble inmueble){
+    public void eliminarInmueble (Inmueble inmueble){
         try{
             
             String sql = "DELETE FROM inmueble WHERE (id) VALUES = ?)";
