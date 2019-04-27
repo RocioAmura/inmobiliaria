@@ -36,7 +36,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jMItem_gestionClientes = new javax.swing.JMenuItem();
         jMenuItem_AgregarCliente = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -79,9 +81,22 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jMenuBar_gestionClientes.add(jMenu3);
 
         jMenu2.setText("Inmuebles");
+
+        jMenuItem3.setText("Gestionar inmuebles");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem3);
+
         jMenuBar_gestionClientes.add(jMenu2);
 
         jMenu4.setText("Alquileres");
+
+        jMenuItem5.setText("Gestionar alquileres");
+        jMenu4.add(jMenuItem5);
+
         jMenuBar_gestionClientes.add(jMenu4);
 
         setJMenuBar(jMenuBar_gestionClientes);
@@ -111,6 +126,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void jMItem_gestionClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMItem_gestionClientesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMItem_gestionClientesActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
     private FormularioCliente c;
     private void jMItem_gestionClientes(java.awt.event.ActionEvent evt) {                                           
         // TODO add your handling code here:
@@ -164,6 +183,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar_gestionClientes;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem_AgregarCliente;
     // End of variables declaration//GEN-END:variables
 }
