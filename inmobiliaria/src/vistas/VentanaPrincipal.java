@@ -27,9 +27,21 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         bt_salir = new javax.swing.JButton();
         bt_nuevaVentana = new javax.swing.JButton();
         bt_cerrarVentana = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem_AgregarCliente = new javax.swing.JMenuItem();
+        jMenuItem_Listar = new javax.swing.JMenuItem();
+
+        jMenuItem1.setText("jMenuItem1");
+
+        jMenuItem2.setText("jMenuItem2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,6 +66,29 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jMenu1.setText("File");
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("Cliente");
+
+        jMenuItem_AgregarCliente.setText("AgregarCliente");
+        jMenuItem_AgregarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_AgregarClienteActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem_AgregarCliente);
+
+        jMenuItem_Listar.setText("Listar");
+        jMenu3.add(jMenuItem_Listar);
+
+        jMenuBar1.add(jMenu3);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -75,7 +110,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(bt_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 211, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 190, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bt_nuevaVentana, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bt_cerrarVentana, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -101,6 +136,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         v.dispose();
     }//GEN-LAST:event_bt_cerrarVentanaActionPerformed
 
+    private void jMenuItem_AgregarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_AgregarClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem_AgregarClienteActionPerformed
+    private FormularioClientes c;
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {                                           
+        // TODO add your handling code here:
+        c = new FormularioClientes();
+        c.setSize(100,100);
+        c.setVisible(true);
+        this.add(c);
+    }                  
     /**
      * @param args the command line arguments
      */
@@ -140,5 +186,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton bt_cerrarVentana;
     private javax.swing.JButton bt_nuevaVentana;
     private javax.swing.JButton bt_salir;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem_AgregarCliente;
+    private javax.swing.JMenuItem jMenuItem_Listar;
     // End of variables declaration//GEN-END:variables
 }
