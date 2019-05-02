@@ -34,7 +34,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         jMItem_gestionClientes = new javax.swing.JMenuItem();
-        jMenuItem_AgregarCliente = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
@@ -69,14 +68,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
         jMenu3.add(jMItem_gestionClientes);
-
-        jMenuItem_AgregarCliente.setText("AgregarCliente");
-        jMenuItem_AgregarCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem_AgregarClienteActionPerformed(evt);
-            }
-        });
-        jMenu3.add(jMenuItem_AgregarCliente);
 
         jMenuBar_gestionClientes.add(jMenu3);
 
@@ -114,14 +105,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jMenuItem_AgregarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_AgregarClienteActionPerformed
-        escritorio.removeAll();
-        escritorio.repaint();
-        FormularioCliente cl = new FormularioCliente();
-        cl.setVisible(true);
-        escritorio.add(cl);
-    }//GEN-LAST:event_jMenuItem_AgregarClienteActionPerformed
 
     private void jMItem_gestionClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMItem_gestionClientesActionPerformed
         // TODO add your handling code here:
@@ -185,6 +168,5 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem_AgregarCliente;
     // End of variables declaration//GEN-END:variables
 }
