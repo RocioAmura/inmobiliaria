@@ -77,6 +77,31 @@ public class InmuebleData {
         }
     }
     
+    public Inmueble obtenerInmueblePorId (int id_inmueble){
+       
+        Inmueble i;
+        try{
+            
+            String sql = "SELECT * FROM `inmueble` WHERE id=?";
+            
+            
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+            pstmt.setInt(1,id_inmueble);
+            
+            ResultSet rs = pstmt.executeQuery();
+            rs.next();
+            
+            i = new Inmueble(rs.getInt("id"),rs.getString("direccion"),rs.getInt("cantAmbientes"),rs.getBoolean("disponibilidad"),rs.getInt("id_persona"));
+            
+            pstmt.close();
+            return i;
+            } 
+        catch(SQLException ex){
+            System.out.println("Error al obtener un inmueble: " + ex.getMessage());
+            return null;
+        }
+    }
+    
     public Inmueble obtenerInmuebles (String direccion){
         
         Inmueble i;
