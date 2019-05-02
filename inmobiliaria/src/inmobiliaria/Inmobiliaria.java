@@ -72,11 +72,11 @@ public class Inmobiliaria {
     }*/
     
  
-    public static void main(String[] args){
+    //public static void main(String[] args){
         //ventana vn = new ventana();
         //vn.mostrarVentana();
-        VentanaPrincipal vn1 = new VentanaPrincipal();
-        vn1.setVisible(true);
+        //VentanaPrincipal vn1 = new VentanaPrincipal();
+        //vn1.setVisible(true);
         /*try {
             Conexion cn = new Conexion("jdbc:mysql://localhost/inmobiliaria","root","");
             InmuebleData inmdata = new InmuebleData(cn);
@@ -89,5 +89,29 @@ public class Inmobiliaria {
         {
          System.out.println("Error al instanciar la clase conexion: " + e.getMessage());
         }*/
+    //}
+    
+    public static void main(String[] args) throws ClassNotFoundException, SQLException{
+        //ventana vn = new ventana();
+        //vn.mostrarVentana();
+        //VentanaPrincipal vn1 = new VentanaPrincipal();
+        //vn1.setVisible(true);
+        try{ 
+       Conexion con = new Conexion("jdbc:mysql://localhost/inmobiliaria","root","");
+        Persona ps = new Persona("Pepe", 12345, "2456733");
+        PersonaData dtp = new PersonaData(con);
+        dtp.guardarPersona(ps);
+        
+        Inmueble inm = new Inmueble("Av. lafinur", 2, true);
+        InmuebleData dti = new InmuebleData(con);
+        dti.guardarInmueble(inm);
+        
+        Alquiler al;
+        al = new Alquiler(ps, inm,"Prueba",20000,Date.valueOf("16-01-2019").toLocalDate(), Date.valueOf("11-08-2020").toLocalDate());
+        AlquilerData dta = new AlquilerData(con);
+        dta.ingresarAlquiler(al);
+        } catch (SQLException ex) {
+            System.out.println("Error en main "+ ex.getMessage());
+        }
     }
 }
