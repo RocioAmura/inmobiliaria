@@ -14,6 +14,15 @@ public class Inmueble {
     private String direccion;
     private int cantAmbientes;
     private boolean disponibilidad;
+    private int id_persona;
+    
+    public int getId_persona() {
+        return id_persona;
+    }
+
+    public void setId_persona(int id_persona) {
+        this.id_persona = id_persona;
+    }
     
     public Inmueble(int id, String direccion,int cantAmbientes, boolean disponibilidad){
        this.id = id;
