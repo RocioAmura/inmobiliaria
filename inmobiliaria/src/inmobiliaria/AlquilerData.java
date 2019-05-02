@@ -7,7 +7,7 @@ package inmobiliaria;
 
 /**
  *
- * @author Ro
+ * @author Pedro
  */
 public class AlquilerData {
     
