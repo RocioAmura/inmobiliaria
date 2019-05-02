@@ -65,10 +65,35 @@ public class PersonaData {
         }
         catch (SQLException ex){
             System.out.println("Error al eliminar una persona: " + ex.getMessage());
-        }
-        
+        }   
     }
-      
+    
+    public Persona obtenerPersonaPorId (int id_persona){
+        
+        Persona p;
+                
+        try{
+            
+            String sql = "SELECT * FROM `persona` WHERE id = ?";
+            
+            
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1,id_persona);
+            
+            ResultSet rs = stmt.executeQuery();
+            rs.next();
+            
+            p = new Persona(rs.getInt("id"),rs.getString("nombreCompleto"),rs.getInt("documento"),rs.getString("celular"));
+            
+            stmt.close();
+            return p;
+            } 
+        catch(SQLException ex){
+            System.out.println("Error al obtener una persona: " + ex.getMessage());
+            return null;
+        }
+    }
+    
     public Persona obtenerPersonas (String nombreCompleto){
         
         Persona p;
