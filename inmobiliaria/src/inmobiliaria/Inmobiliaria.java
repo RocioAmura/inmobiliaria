@@ -9,7 +9,7 @@ import java.awt.Color;
 import java.sql.*;
 import javax.swing.*;
 import java.awt.*;
-import vistas.VentanaPrincipal;
+import java.time.LocalDate;
 /*
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -72,44 +72,29 @@ public class Inmobiliaria {
     }*/
     
  
-    //public static void main(String[] args){
-        //ventana vn = new ventana();
-        //vn.mostrarVentana();
-        //VentanaPrincipal vn1 = new VentanaPrincipal();
-        //vn1.setVisible(true);
-        /*try {
-            Conexion cn = new Conexion("jdbc:mysql://localhost/inmobiliaria","root","");
-            InmuebleData inmdata = new InmuebleData(cn);
-
-            Inmueble inm = new Inmueble("Av España 456", 5, true);
-            inmdata.guardarInmueble(inm);
-            System.out.println(inm.getId());
-        }
-        catch(Exception e) //Generalmente hay un catch para detectar los errores.
-        {
-         System.out.println("Error al instanciar la clase conexion: " + e.getMessage());
-        }*/
-    //}
-    
     public static void main(String[] args) throws ClassNotFoundException, SQLException{
         //ventana vn = new ventana();
         //vn.mostrarVentana();
         //VentanaPrincipal vn1 = new VentanaPrincipal();
         //vn1.setVisible(true);
         try{ 
-       Conexion con = new Conexion("jdbc:mysql://localhost/inmobiliaria","root","");
+       Conexion con = new Conexion("jdbc:mysql://localhost/inmobiliaria2","root","");
         Persona ps = new Persona("Pepe", 12345, "2456733");
         PersonaData dtp = new PersonaData(con);
         dtp.guardarPersona(ps);
         
-        Inmueble inm = new Inmueble("Av. lafinur", 2, true);
+        Inmueble inm = new Inmueble("Av. lafinur", 2, true,ps);
         InmuebleData dti = new InmuebleData(con);
         dti.guardarInmueble(inm);
         
+        
+        //Al querer hacer un LocalDate, hay que poner.parse(y aca entre comillas el formato de fecha de EEUU con 01,09, es decir no puede ser 1,9)
         Alquiler al;
-        al = new Alquiler(ps, inm,"Prueba",20000,Date.valueOf("16-01-2019").toLocalDate(), Date.valueOf("11-08-2020").toLocalDate());
+        al = new Alquiler(ps, inm,"Prueba, ojala funcione",20000,LocalDate.parse("2019-09-01"), LocalDate.parse("2020-12-08"));
         AlquilerData dta = new AlquilerData(con);
         dta.ingresarAlquiler(al);
+        
+        dta.obtenerAlquileres().forEach(a -> System.out.println("La persona que alquila es:"+a.getPersona().getNombreCompleto()+" y la direccion es: "+a.getInmueble().getDireccion()));
         } catch (SQLException ex) {
             System.out.println("Error en main "+ ex.getMessage());
         }

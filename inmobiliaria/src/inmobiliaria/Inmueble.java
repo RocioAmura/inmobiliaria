@@ -14,35 +14,30 @@ public class Inmueble {
     private String direccion;
     private int cantAmbientes;
     private boolean disponibilidad;
-    private int id_persona;
-   
-    public int getId_persona() {
-        return id_persona;
+    private Persona persona;
+
+    public Persona getpersona() {
+        return persona;
     }
 
-    public void setId_persona(int id_persona) {
-        this.id_persona = id_persona;
+    public void setpersona(Persona persona) {
+        this.persona = persona;
     }
     
-    Inmueble(int id, String direccion, int cantAmbientes, boolean disponibilidad, int id_persona) {
+    public Inmueble(int id, String direccion,int cantAmbientes, boolean disponibilidad,Persona persona){
        this.id = id;
        this.direccion = direccion;
        this.cantAmbientes = cantAmbientes;
        this.disponibilidad = disponibilidad;
-       this.id_persona = id_persona;       
+       this.persona = persona;
     }
     
-    public Inmueble(int id, String direccion,int cantAmbientes, boolean disponibilidad){
-       this.id = id;
-       this.direccion = direccion;
-       this.cantAmbientes = cantAmbientes;
-       this.disponibilidad = disponibilidad;
-    }
-    
-    public Inmueble(String direccion,int cantAmbientes, boolean disponibilidad){
+    public Inmueble(String direccion,int cantAmbientes, boolean disponibilidad, Persona persona){
+        this.id = -1;
         this.direccion = direccion;
         this.cantAmbientes = cantAmbientes;
         this.disponibilidad = disponibilidad;
+        this.persona = persona;
     }
     
     public Inmueble(){
@@ -79,5 +74,5 @@ public class Inmueble {
 
     public void setDisponibilidad(boolean disponibilidad) {
         this.disponibilidad = disponibilidad;
-    }     
+    } 
 }
