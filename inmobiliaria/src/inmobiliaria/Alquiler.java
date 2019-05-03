@@ -12,7 +12,7 @@ import java.time.LocalDate;
  * @author Pedro
  */
 public class Alquiler {
-    private Persona persona;
+   private Persona persona;
    private Inmueble inmueble;
    private int id = -1;
    private String observaciones;
@@ -90,8 +90,6 @@ public class Alquiler {
     public void setFechaFin(LocalDate fechaFin) {
         this.fechaFin = fechaFin;
     }
-
-
 
     public int getId() {
         return id;
