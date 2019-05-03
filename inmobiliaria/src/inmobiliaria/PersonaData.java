@@ -65,8 +65,10 @@ public class PersonaData {
         }
         catch (SQLException ex){
             System.out.println("Error al eliminar una persona: " + ex.getMessage());
-        }   
+        }
+        
     }
+    
     
     public Persona obtenerPersonaPorId (int id_persona){
         
@@ -93,7 +95,7 @@ public class PersonaData {
             return null;
         }
     }
-    
+      
     public Persona obtenerPersonas (String nombreCompleto){
         
         Persona p;
