@@ -27,13 +27,16 @@ public class InmuebleData {
         }
     }
     
+    public InmuebleData(){}
+    
+    
     public void guardarInmueble (Inmueble inmueble){
         try{
             
             String sql = "INSERT INTO inmueble (direccion,cantAmbientes,disponibilidad,id_persona) VALUES (?,?,?,?)";
             
             
-            PreparedStatement pstmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement pstmt = Conexion.getConexionS().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             
             pstmt.setString(1,inmueble.getDireccion());
             pstmt.setInt(2,inmueble.getCantAmbientes());
@@ -62,7 +65,7 @@ public class InmuebleData {
             String sql = "DELETE FROM inmueble WHERE (id) VALUES = ?)";
             
             
-            PreparedStatement pstmt = connection.prepareStatement(sql);
+            PreparedStatement pstmt = Conexion.getConexionS().prepareStatement(sql);
             pstmt.setInt(1, inmueble.getId());
             
             pstmt.executeUpdate();
@@ -73,6 +76,27 @@ public class InmuebleData {
             System.out.println("Error al eliminar un inmueble: " + ex.getMessage());
         }
     }
+    
+    
+        public void eliminarInmueble (String direccion){
+        try{
+            
+            String sql = "DELETE FROM `inmueble` WHERE `direccion`=?";
+            
+            
+            PreparedStatement pstmt = Conexion.getConexionS().prepareStatement(sql);
+            pstmt.setString(1, direccion);
+            
+            pstmt.executeUpdate();
+           
+            pstmt.close();
+            } 
+        catch(SQLException ex){
+            System.out.println("Error al eliminar un inmueble: " + ex.getMessage());
+        }
+    }
+    
+    
     public Inmueble obtenerInmueblePorId (int id_inmueble){
        
         Inmueble i;
@@ -81,12 +105,12 @@ public class InmuebleData {
             String sql = "SELECT * FROM `inmueble` WHERE id=?";
             
             
-            PreparedStatement pstmt = connection.prepareStatement(sql);
+            PreparedStatement pstmt = Conexion.getConexionS().prepareStatement(sql);
             pstmt.setInt(1,id_inmueble);
             
             ResultSet rs = pstmt.executeQuery();
             rs.next();
-            PersonaData pd = new PersonaData(conexion);
+            PersonaData pd = new PersonaData();
             Persona ps = pd.obtenerPersonaPorId(rs.getInt("id_persona"));
             
             i = new Inmueble(rs.getInt("id"),rs.getString("direccion"),rs.getInt("cantAmbientes"),rs.getBoolean("disponibilidad"),ps);
@@ -99,6 +123,7 @@ public class InmuebleData {
             return null;
         }
     }
+    
     
     public List<Inmueble> obtenerInmuebles (String direccion){
         
@@ -181,6 +206,7 @@ public class InmuebleData {
             Inmueble inmueble;
             PersonaData pd = new PersonaData();
             
+            
             while(resultSet.next()){
                 Persona pers = pd.obtenerPersonaPorId(resultSet.getInt("id_persona"));
                 inmueble = new Inmueble();
@@ -200,5 +226,5 @@ public class InmuebleData {
         
         
         return inmuebles;
-    }   
+    }
 }
