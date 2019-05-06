@@ -18,6 +18,28 @@ public class Alquiler {
    private String observaciones;
    private LocalDate fechaInicio, fechaFin;
    private long precio;
+   
+   Alquiler(int id, Persona persona, Inmueble inmueble, LocalDate fechaInicio,LocalDate fechaFin, String observaciones, long precio){
+       this.id = id;
+       this.inmueble = inmueble;
+       this.persona = persona;
+       this.observaciones = observaciones;
+       this.precio = precio;
+       this.fechaInicio = fechaInicio;
+       this.fechaFin = fechaFin;
+   }
+   Alquiler(Persona persona, Inmueble inmueble, String observaciones, long precio, LocalDate fechaInicio,LocalDate fechaFin){
+       this.id = -1;
+       this.inmueble = inmueble;
+       this.persona = persona;
+       this.observaciones = observaciones;
+       this.precio = precio;
+       this.fechaInicio = fechaInicio;
+       this.fechaFin = fechaFin;
+   }
+   Alquiler(){
+       this.id = -1;
+   }
 
     public Persona getPersona() {
         return persona;
@@ -51,29 +73,6 @@ public class Alquiler {
     public void setObservaciones(String observaciones) {
         this.observaciones = observaciones;
     }
-   
-   
-   Alquiler(int id, Persona persona, Inmueble inmueble, LocalDate fechaInicio,LocalDate fechaFin, String observaciones, long precio){
-       this.id = id;
-       this.inmueble = inmueble;
-       this.persona = persona;
-       this.observaciones = observaciones;
-       this.precio = precio;
-       this.fechaInicio = fechaInicio;
-       this.fechaFin = fechaFin;
-   }
-   Alquiler(Persona persona, Inmueble inmueble, String observaciones, long precio, LocalDate fechaInicio,LocalDate fechaFin){
-       this.id = -1;
-       this.inmueble = inmueble;
-       this.persona = persona;
-       this.observaciones = observaciones;
-       this.precio = precio;
-       this.fechaInicio = fechaInicio;
-       this.fechaFin = fechaFin;
-   }
-   Alquiler(){
-       this.id = -1;
-   }
 
     public LocalDate getFechaInicio() {
         return fechaInicio;
