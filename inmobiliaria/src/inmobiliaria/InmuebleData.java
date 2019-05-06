@@ -100,57 +100,57 @@ public class InmuebleData {
         }
     }
     
-    
-    public Inmueble obtenerInmuebles (String direccion){
+    public List<Inmueble> obtenerInmuebles (String direccion){
         
-        Inmueble i;
+       // Inmueble i;
                 
-        try{
+        //try{
             
-            String sql = "SELECT * FROM `inmueble` WHERE direccion = ?";
+          //  String sql = "SELECT * FROM `inmueble` WHERE direccion = ?";
             
             
-            PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setString(1,direccion);
+            //PreparedStatement pstmt = connection.prepareStatement(sql);
+            //pstmt.setString(1,direccion);
             
-            ResultSet rs = pstmt.executeQuery();
-            rs.next();
-            PersonaData pd = new PersonaData(conexion);
-            Persona ps = pd.obtenerPersonaPorId(rs.getInt("id_persona"));
+            //ResultSet rs = pstmt.executeQuery();
+            //rs.next();
+            //PersonaData pd = new PersonaData(conexion);
+            //Persona ps = pd.obtenerPersonaPorId(rs.getInt("id_persona"));
             
-            i = new Inmueble(rs.getInt("id"),rs.getString("direccion"),rs.getInt("cantAmbientes"),rs.getBoolean("disponibilidad"), ps);
+            //i = new Inmueble(rs.getInt("id"),rs.getString("direccion"),rs.getInt("cantAmbientes"),rs.getBoolean("disponibilidad"), ps);
             
-            pstmt.close();
-            return i;
-            } 
-        catch(SQLException ex){
-            System.out.println("Error al obtener un inmueble: " + ex.getMessage());
-            return null;
-        }
-    }
-    
-    public List<Inmueble> obtenerInmuebles(){
-        List<Inmueble> inmuebles = new ArrayList<Inmueble>(); 
+            //pstmt.close();
+            //return i;
+            //} 
+        //catch(SQLException ex){
+            //System.out.println("Error al obtener un inmueble: " + ex.getMessage());
+            //return null;
+        //}
+        
+        
+        
+                List<Inmueble> inmuebles = new ArrayList<Inmueble>(); 
         
         try {
-            String sql = "SELECT * FROM inmueble;";
-            PreparedStatement pstmt = connection.prepareStatement(sql);
-            
-            pstmt.setBoolean (1,true);
-            pstmt.executeUpdate();
-            
-            pstmt.setBoolean(0,false);
-            pstmt.executeUpdate();
+            String sql = "SELECT * FROM inmueble WHERE direccion = ?;";
+            PreparedStatement pstmt = Conexion.getConexionS().prepareStatement(sql);
+            pstmt.setString(1, direccion);
+
             
             ResultSet resultSet = pstmt.executeQuery();
             Inmueble inmueble;
+            PersonaData pd = new PersonaData();
+            
             
             while(resultSet.next()){
+                Persona pers = pd.obtenerPersonaPorId(resultSet.getInt("id_persona"));
                 inmueble = new Inmueble();
                 inmueble.setId(resultSet.getInt("id"));
                 inmueble.setDireccion(resultSet.getString("direccion"));
                 inmueble.setCantAmbientes(resultSet.getInt("cantAmbientes"));
-                inmueble.setDisponibilidad(resultSet.getBoolean("true"));
+                inmueble.setDisponibilidad(resultSet.getBoolean("disponibilidad"));
+                inmueble.setpersona(pers);
+                
 
                 inmuebles.add(inmueble);
             }      
@@ -162,4 +162,43 @@ public class InmuebleData {
         
         return inmuebles;
     }
+    
+    
+    
+    
+    
+    
+    
+    public List<Inmueble> obtenerInmuebles(){
+        List<Inmueble> inmuebles = new ArrayList<Inmueble>(); 
+        
+        try {
+            String sql = "SELECT * FROM inmueble;";
+            PreparedStatement pstmt = Conexion.getConexionS().prepareStatement(sql);
+
+            
+            ResultSet resultSet = pstmt.executeQuery();
+            Inmueble inmueble;
+            PersonaData pd = new PersonaData();
+            
+            while(resultSet.next()){
+                Persona pers = pd.obtenerPersonaPorId(resultSet.getInt("id_persona"));
+                inmueble = new Inmueble();
+                inmueble.setId(resultSet.getInt("id"));
+                inmueble.setDireccion(resultSet.getString("direccion"));
+                inmueble.setCantAmbientes(resultSet.getInt("cantAmbientes"));
+                inmueble.setDisponibilidad(resultSet.getBoolean("disponibilidad"));
+                inmueble.setpersona(pers);
+                
+
+                inmuebles.add(inmueble);
+            }      
+            pstmt.close();
+        } catch (SQLException ex) {
+            System.out.println("Error al obtener los inmuebles: " + ex.getMessage());
+        }
+        
+        
+        return inmuebles;
+    }   
 }

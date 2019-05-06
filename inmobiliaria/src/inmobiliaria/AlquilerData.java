@@ -31,12 +31,13 @@ public class AlquilerData {
            System.out.println("Error de conexion");
        }
     }
+   public AlquilerData(){}
    
-   public List<Alquiler> obtenerAlquileres() throws SQLException{
+   public List<Alquiler> obtenerAlquileres(){
        List<Alquiler> alquileres = new ArrayList<Alquiler>();
        
        try{
-           PreparedStatement stms = connection.prepareStatement("SELECT * FROM alquiler;");
+           PreparedStatement stms = Conexion.getConexionS().prepareStatement("SELECT * FROM alquiler;");
            ResultSet rs = stms.executeQuery();
            Alquiler alqui;
            while(rs.next()){
@@ -47,12 +48,12 @@ public class AlquilerData {
                alqui.setPrecio(rs.getLong("precio"));
                alqui.setObservaciones(rs.getString("observaciones"));
                //crear un objeto inmueble con el id del resultset
-               InmuebleData dt = new InmuebleData(con);
+               InmuebleData dt = new InmuebleData();
                Inmueble in = new Inmueble();
                in=dt.obtenerInmueblePorId(rs.getInt("id_inmueble"));
                alqui.setInmueble(in);
                
-               PersonaData pd = new PersonaData(con);
+               PersonaData pd = new PersonaData();
                Persona per = new Persona();
                per=pd.obtenerPersonaPorId(rs.getInt("id_persona"));
                alqui.setPersona(per);
@@ -61,14 +62,22 @@ public class AlquilerData {
                
            } 
            stms.close();
-
+           
+           
        } catch (SQLException ex){
            System.out.print("Error en obtener los datos de alquileres "+ ex.getMessage());
        }
        return alquileres;
    }
    
-   public List<Alquiler> obtenerAlquileresDireccion(String direccion){
+   
+   
+      
+   
+   
+   
+   
+     public List<Alquiler> obtenerAlquileresDireccion(String direccion){
        List<Alquiler> alquileres = new ArrayList<Alquiler>();
        InmuebleData id = new InmuebleData();
        
@@ -100,15 +109,19 @@ public class AlquilerData {
            } 
            stms.close();
            
+           
        } catch (SQLException ex){
            System.out.print("Error en obtener los datos de alquileres "+ ex.getMessage());
        }
        return alquileres;
    }
    
-   public void ingresarAlquiler(Alquiler alquiler) throws SQLException{
+   
+   
+   
+   public void ingresarAlquiler(Alquiler alquiler){
        try{
-       PreparedStatement statement = connection.prepareStatement("INSERT INTO `alquiler`(`fechaInicio`, `fechaFin`, `precio`, `observaciones`, `id_inmueble`, `id_persona`) VALUES (?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
+       PreparedStatement statement = Conexion.getConexionS().prepareStatement("INSERT INTO `alquiler`(`fechaInicio`, `fechaFin`, `precio`, `observaciones`, `id_inmueble`, `id_persona`) VALUES (?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
        statement.setDate(1, Date.valueOf(alquiler.getFechaInicio()));
        statement.setDate(2, Date.valueOf(alquiler.getFechaFin()));
        statement.setLong(3, alquiler.getPrecio());
@@ -126,14 +139,13 @@ public class AlquilerData {
            System.err.print("Error al obtener el id de alquiler");
        }
        statement.close();
-       } catch (SQLException ex){
+   } catch (SQLException ex){
        System.out.println("Error al ingresar nuevo alquiler "+ex.getMessage());
-       }
-       }
-   
+   }
+   }
    public void eliminarAlquiler(int id) throws SQLException{
        try{
-       PreparedStatement statement = connection.prepareStatement("DELETE FROM `alquiler` WHERE ?", Statement.RETURN_GENERATED_KEYS);
+       PreparedStatement statement = Conexion.getConexionS().prepareStatement("DELETE FROM `alquiler` WHERE ?", Statement.RETURN_GENERATED_KEYS);
        statement.setInt(1,id);
        statement.executeUpdate();
        
@@ -147,7 +159,7 @@ public class AlquilerData {
    
    public void modificarObservaciones(int id, String obs) throws SQLException{
        try{
-       PreparedStatement sts = connection.prepareStatement("UPDATE `alquiler` SET `observaciones`= ? WHERE id = ?", Statement.RETURN_GENERATED_KEYS);
+       PreparedStatement sts = Conexion.getConexionS().prepareStatement("UPDATE `alquiler` SET `observaciones`= ? WHERE id = ?", Statement.RETURN_GENERATED_KEYS);
        sts.setString(1, obs);
        sts.setInt(2, id);
        sts.executeUpdate();
@@ -165,7 +177,7 @@ public class AlquilerData {
    
    public void modificarFechaFinal(int id, Date date){
         try{
-       PreparedStatement sts = connection.prepareStatement("UPDATE `alquiler` SET `fechaFin`=? WHERE id=?", Statement.RETURN_GENERATED_KEYS);
+       PreparedStatement sts = Conexion.getConexionS().prepareStatement("UPDATE `alquiler` SET `fechaFin`=? WHERE id=?", Statement.RETURN_GENERATED_KEYS);
        sts.setDate(1, date);
        sts.setInt(2, id);
        sts.executeUpdate();
@@ -183,7 +195,7 @@ public class AlquilerData {
 
 public void modificarPrecio(int id, long precio){
     try{
-       PreparedStatement sts = connection.prepareStatement("UPDATE `alquiler` SET `precio`= ? WHERE id=?", Statement.RETURN_GENERATED_KEYS);
+       PreparedStatement sts = Conexion.getConexionS().prepareStatement("UPDATE `alquiler` SET `precio`= ? WHERE id=?", Statement.RETURN_GENERATED_KEYS);
        sts.setLong(1, precio);
        sts.setInt(2, id);
        sts.executeUpdate();

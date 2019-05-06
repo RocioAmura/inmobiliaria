@@ -78,7 +78,7 @@ public class Inmobiliaria {
         //VentanaPrincipal vn1 = new VentanaPrincipal();
         //vn1.setVisible(true);
         try{ 
-       Conexion con = new Conexion("jdbc:mysql://localhost/inmobiliaria2","root","");
+       Conexion con = new Conexion("jdbc:mysql://localhost/inmobiliaria","root","");
         Persona ps = new Persona("Pepe", 12345, "2456733");
         PersonaData dtp = new PersonaData(con);
         dtp.guardarPersona(ps);
