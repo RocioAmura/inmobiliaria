@@ -14,11 +14,13 @@ import java.sql.SQLException;
  * @author Ro
  */
 public class Conexion {
-    private String url = "jdbc:mysql://localhost/inmobiliaria";
-    private String usuario = "root";
-    private String password = "";
+    private String url="jdbc:mysql://localhost/inmobiliaria";
+    private String usuario="root";
+    private String password="";
     private static Connection con;
     private static Conexion conexion = null;
+
+
     
     public Conexion(String url, String usuario, String password) throws ClassNotFoundException {
         this.url = url;
@@ -27,9 +29,9 @@ public class Conexion {
 
         //Cargamos las clases de mariadb que implementan JDBC
         Class.forName("org.mariadb.jdbc.Driver");
+
     }
-    
-    private Conexion (){
+       private Conexion(){
         
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -41,6 +43,7 @@ public class Conexion {
         } catch (ClassNotFoundException ex) {
             System.out.println("Error al pasar nombre de driver");
         }
+        
     }
     
     public Connection getConexion() throws SQLException{
@@ -52,17 +55,16 @@ public class Conexion {
         }
         return con;
     }
-    
-    public static Connection getConexionS(){
+        public static Connection getConexionS(){
       
-        try {
-                if(conexion == null || con.isClosed()|| !con.isValid(0)) {
-                conexion = new Conexion();
-            }
+            try {
+                 if(conexion == null || con.isClosed()|| !con.isValid(0)) {
+                    conexion = new Conexion();
+                 }
 
-        } catch (SQLException ex) {
+            } catch (SQLException ex) {
                 System.out.println("Fallo en getConexion\n");
-        }
+            }
         
         return con;
     }
