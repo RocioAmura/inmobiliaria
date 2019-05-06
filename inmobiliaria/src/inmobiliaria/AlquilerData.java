@@ -61,7 +61,44 @@ public class AlquilerData {
                
            } 
            stms.close();
-           
+
+       } catch (SQLException ex){
+           System.out.print("Error en obtener los datos de alquileres "+ ex.getMessage());
+       }
+       return alquileres;
+   }
+   
+   public List<Alquiler> obtenerAlquileresDireccion(String direccion){
+       List<Alquiler> alquileres = new ArrayList<Alquiler>();
+       InmuebleData id = new InmuebleData();
+       
+       try{
+           PreparedStatement stms = Conexion.getConexionS().prepareStatement("SELECT * FROM alquiler WHERE id_inmueble = ?;");
+           stms.setInt(1, id.obtenerInmuebles(direccion).get(0).getId());
+           ResultSet rs = stms.executeQuery();
+           Alquiler alqui;
+           while(rs.next()){
+               alqui = new Alquiler();
+               alqui.setId(rs.getInt("id"));
+               alqui.setFechaInicio(rs.getDate("fechaInicio").toLocalDate());
+               alqui.setFechaFin(rs.getDate("fechaFin").toLocalDate());
+               alqui.setPrecio(rs.getLong("precio"));
+               alqui.setObservaciones(rs.getString("observaciones"));
+               //crear un objeto inmueble con el id del resultset
+               InmuebleData dt = new InmuebleData();
+               Inmueble in = new Inmueble();
+               in=dt.obtenerInmueblePorId(rs.getInt("id_inmueble"));
+               alqui.setInmueble(in);
+               
+               PersonaData pd = new PersonaData();
+               Persona per = new Persona();
+               per=pd.obtenerPersonaPorId(rs.getInt("id_persona"));
+               alqui.setPersona(per);
+               
+               alquileres.add(alqui);
+               
+           } 
+           stms.close();
            
        } catch (SQLException ex){
            System.out.print("Error en obtener los datos de alquileres "+ ex.getMessage());
@@ -89,10 +126,11 @@ public class AlquilerData {
            System.err.print("Error al obtener el id de alquiler");
        }
        statement.close();
-   } catch (SQLException ex){
+       } catch (SQLException ex){
        System.out.println("Error al ingresar nuevo alquiler "+ex.getMessage());
-   }
-   }
+       }
+       }
+   
    public void eliminarAlquiler(int id) throws SQLException{
        try{
        PreparedStatement statement = connection.prepareStatement("DELETE FROM `alquiler` WHERE ?", Statement.RETURN_GENERATED_KEYS);
