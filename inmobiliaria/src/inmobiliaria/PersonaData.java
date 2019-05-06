@@ -24,6 +24,7 @@ public class PersonaData {
             System.out.println("Error al obtener la conexión");
         }
     }
+    public PersonaData(){}
     
     public void guardarPersona (Persona persona){
         try{
@@ -79,7 +80,7 @@ public class PersonaData {
             String sql = "SELECT * FROM `persona` WHERE id = ?";
             
             
-            PreparedStatement stmt = connection.prepareStatement(sql);
+            PreparedStatement stmt = Conexion.getConexionS().prepareStatement(sql);
             stmt.setInt(1,id_persona);
             
             ResultSet rs = stmt.executeQuery();
@@ -102,11 +103,11 @@ public class PersonaData {
                 
         try{
             
-            String sql = "SELECT * FROM `persona` WHERE nombreCompleto = ?";
+           
             
             
-            PreparedStatement stmt = connection.prepareStatement(sql);
-            stmt.setString(2,nombreCompleto);
+            PreparedStatement stmt = Conexion.getConexionS().prepareStatement("SELECT * FROM `persona` WHERE nombreCompleto = ?");
+            stmt.setString(1,nombreCompleto);
             
             ResultSet rs = stmt.executeQuery();
             rs.next();
@@ -128,7 +129,7 @@ public class PersonaData {
         
         try {
             String sql = "SELECT * FROM persona;";
-            PreparedStatement statement = connection.prepareStatement(sql);
+            PreparedStatement statement = Conexion.getConexionS().prepareStatement(sql);
             ResultSet resultSet = statement.executeQuery();
             Persona persona;
             while(resultSet.next()){
