@@ -88,14 +88,16 @@ public class Inmobiliaria {
         dti.guardarInmueble(inm);
         
         
-        //Al querer hacer un LocalDate, hay que poner.parse(y aca entre comillas el formato de fecha de EEUU con 01,09, es decir no puede ser 1,9)
-        Alquiler al;
-        al = new Alquiler(ps, inm,"Prueba, ojala funcione",20000,LocalDate.parse("2019-09-01"), LocalDate.parse("2020-12-08"));
-        AlquilerData dta = new AlquilerData(con);
-        dta.ingresarAlquiler(al);
+       //Al querer hacer un LocalDate, hay que poner.parse(y aca entre comillas el formato de fecha de EEUU con 01,09, es decir no puede ser 1,9)
+       Alquiler al;
+       al = new Alquiler(ps, inm,"Prueba, ojala funcione",20000,LocalDate.parse("2019-09-01"), LocalDate.parse("2020-12-08"));
+       AlquilerData dta = new AlquilerData(con);
+       dta.ingresarAlquiler(al);
         
-        dta.obtenerAlquileres().forEach(a -> System.out.println("La persona que alquila es:"+a.getPersona().getNombreCompleto()+" y la direccion es: "+a.getInmueble().getDireccion()));
-        } catch (SQLException ex) {
+       dta.obtenerAlquileres().forEach(a -> System.out.println("La persona que alquila es:"+a.getPersona().getNombreCompleto()+" y la direccion es: "+a.getInmueble().getDireccion()));
+       InmuebleData id = new InmuebleData(con);
+       id.obtenerInmuebles().forEach(i-> System.out.println(i.getDireccion() + " Dueño: " + i.getpersona().getNombreCompleto()));
+        } catch (Exception ex) {
             System.out.println("Error en main "+ ex.getMessage());
         }
     }
