@@ -138,6 +138,7 @@ public class FormularioCliente extends javax.swing.JInternalFrame {
             PersonaData pd = new PersonaData(con);
             pd.guardarPersona(pers);
         } catch (ClassNotFoundException ex) {
+            System.out.print("Boton no funciono");
             Logger.getLogger(FormularioCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_AceptarActionPerformed
