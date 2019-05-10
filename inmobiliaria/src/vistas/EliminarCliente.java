@@ -9,12 +9,12 @@ package vistas;
  *
  * @author Ro
  */
-public class FormularioCliente extends javax.swing.JInternalFrame {
+public class EliminarCliente extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form FormularioCliente
+     * Creates new form EliminarCliente
      */
-    public FormularioCliente() {
+    public EliminarCliente() {
         initComponents();
     }
 
