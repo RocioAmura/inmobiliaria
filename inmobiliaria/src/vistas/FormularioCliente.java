@@ -5,6 +5,8 @@
  */
 package vistas;
 
+import inmobiliaria.PersonaData;
+
 /**
  *
  * @author Ro
@@ -16,6 +18,8 @@ public class FormularioCliente extends javax.swing.JInternalFrame {
      */
     public FormularioCliente() {
         initComponents();
+        PersonaData pd = new PersonaData();
+
     }
 
     /**
@@ -27,21 +31,98 @@ public class FormularioCliente extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        JField_NombreCompleto = new javax.swing.JTextField();
+        Bt_Documento = new javax.swing.JTextField();
+        JField_Celular = new javax.swing.JTextField();
+        Bt_Agregar = new javax.swing.JButton();
+
+        jLabel1.setText("Nombre y apellido");
+
+        jLabel2.setText("Documento");
+
+        jLabel3.setText("Celular");
+
+        JField_NombreCompleto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JField_NombreCompletoActionPerformed(evt);
+            }
+        });
+
+        Bt_Agregar.setText("Agregar");
+        Bt_Agregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Bt_AgregarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(JField_NombreCompleto, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Bt_Documento)
+                            .addComponent(JField_Celular, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE))))
+                .addContainerGap(131, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Bt_Agregar)
+                .addGap(27, 27, 27))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(JField_NombreCompleto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(44, 44, 44)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(Bt_Documento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(48, 48, 48)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(JField_Celular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addComponent(Bt_Agregar)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void JField_NombreCompletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JField_NombreCompletoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JField_NombreCompletoActionPerformed
+
+    private void Bt_AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bt_AgregarActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_Bt_AgregarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Bt_Agregar;
+    private javax.swing.JTextField Bt_Documento;
+    private javax.swing.JTextField JField_Celular;
+    private javax.swing.JTextField JField_NombreCompleto;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }

@@ -31,15 +31,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jDesktopPane1 = new javax.swing.JDesktopPane();
-        jMenuBar1 = new javax.swing.JMenuBar();
+        JItem_GestionarClientes = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
-        jMenuItem_AgregarCliente = new javax.swing.JMenuItem();
+        jitem_GestionarClientes = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        JItem_GestionarInmuebles = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        JItem_GestionarAlquileres = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -65,40 +65,45 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jMenuItem7.setText("Listar");
         jMenu1.add(jMenuItem7);
 
-        jMenuBar1.add(jMenu1);
+        JItem_GestionarClientes.add(jMenu1);
 
         jMenu3.setText("Clientes");
 
-        jMenuItem_AgregarCliente.setText("AgregarCliente");
-        jMenuItem_AgregarCliente.addActionListener(new java.awt.event.ActionListener() {
+        jitem_GestionarClientes.setText("Gestionar clientes");
+        jitem_GestionarClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem_AgregarClienteActionPerformed(evt);
+                jitem_GestionarClientesActionPerformed(evt);
             }
         });
-        jMenu3.add(jMenuItem_AgregarCliente);
+        jMenu3.add(jitem_GestionarClientes);
 
-        jMenuBar1.add(jMenu3);
+        JItem_GestionarClientes.add(jMenu3);
 
         jMenu2.setText("Inmuebles");
 
-        jMenuItem5.setText("Gestionar inmuebles");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+        JItem_GestionarInmuebles.setText("Gestionar inmuebles");
+        JItem_GestionarInmuebles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
+                JItem_GestionarInmueblesActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem5);
+        jMenu2.add(JItem_GestionarInmuebles);
 
-        jMenuBar1.add(jMenu2);
+        JItem_GestionarClientes.add(jMenu2);
 
         jMenu4.setText("Alquileres");
 
-        jMenuItem4.setText("Gestionar alquileres");
-        jMenu4.add(jMenuItem4);
+        JItem_GestionarAlquileres.setText("Gestionar alquileres");
+        JItem_GestionarAlquileres.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JItem_GestionarAlquileresActionPerformed(evt);
+            }
+        });
+        jMenu4.add(JItem_GestionarAlquileres);
 
-        jMenuBar1.add(jMenu4);
+        JItem_GestionarClientes.add(jMenu4);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(JItem_GestionarClientes);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -114,21 +119,32 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem_AgregarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_AgregarClienteActionPerformed
+    private void jitem_GestionarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jitem_GestionarClientesActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        GestionClientes gc = new GestionClientes();
+        gc.setVisible(true);
+        escritorio.add(cl);
+    }//GEN-LAST:event_jitem_GestionarClientesActionPerformed
 
-    }//GEN-LAST:event_jMenuItem_AgregarClienteActionPerformed
+    private void JItem_GestionarInmueblesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JItem_GestionarInmueblesActionPerformed
+        // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
+        GestionInmuebles gi = new GestionInmuebles();
+        gi.setVisible(true);
+        escritorio.add(cl);
+    }//GEN-LAST:event_JItem_GestionarInmueblesActionPerformed
 
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+    private void JItem_GestionarAlquileresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JItem_GestionarAlquileresActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
-    private FormularioCliente c;
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {                                           
-        // TODO add your handling code here:
-        c = new FormularioCliente();
-        c.setSize(100,100);
-        c.setVisible(true);
-        this.add(c);
-    }                  
+        escritorio.removeAll();
+        escritorio.repaint();
+        GestionAlquileres ga = new GestionAlquileres();
+        ga.setVisible(true);
+        escritorio.add(cl);
+    }//GEN-LAST:event_JItem_GestionarAlquileresActionPerformed
+                 
     /**
      * @param args the command line arguments
      */
@@ -165,18 +181,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem JItem_GestionarAlquileres;
+    private javax.swing.JMenuBar JItem_GestionarClientes;
+    private javax.swing.JMenuItem JItem_GestionarInmuebles;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem_AgregarCliente;
+    private javax.swing.JMenuItem jitem_GestionarClientes;
     // End of variables declaration//GEN-END:variables
 }

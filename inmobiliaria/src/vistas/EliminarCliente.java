@@ -5,6 +5,11 @@
  */
 package vistas;
 
+import inmobiliaria.InmuebleData;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import static vistas.GestionInmuebles.jDesktopPane1;
+
 /**
  *
  * @author Ro
@@ -27,21 +32,101 @@ public class EliminarCliente extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jBt_volver = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        campoEliminar = new javax.swing.JTextField();
+        JBt_Eliminar = new javax.swing.JButton();
+
+        jBt_volver.setText("Volver");
+        jBt_volver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBt_volverActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Nombre del cliente a eliminar:");
+
+        campoEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoEliminarActionPerformed(evt);
+            }
+        });
+
+        JBt_Eliminar.setText("Eliminar");
+        JBt_Eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBt_EliminarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jBt_volver)
+                .addGap(31, 31, 31)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(campoEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(JBt_Eliminar)
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1)
+                        .addComponent(campoEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(JBt_Eliminar))
+                    .addComponent(jBt_volver))
+                .addContainerGap(389, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jBt_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBt_volverActionPerformed
+        // TODO add your handling code here:
+       jDesktopPane1.removeAll();
+       jDesktopPane1.repaint();
+       this.dispose();
+       TablaDeInmueble ti = new TablaDeInmueble();
+       jDesktopPane1.add(ti);
+       ti.setVisible(true);             
+    }//GEN-LAST:event_jBt_volverActionPerformed
+
+    private void JBt_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBt_EliminarActionPerformed
+        // TODO add your handling code here:
+        PersonaData pd = new PersonaData();
+        if(pd.obtenerPersonas(this.campoEliminar.getText().trim()).size()>0){
+        try{
+        if(this.campoEliminar.getText().trim().length() != 0){
+
+        pd.eliminarPersona(this.campoEliminar.getText().trim());       
+        this.cargarTabla();
+        }else {JOptionPane.showMessageDialog(null, "Debes llenar el campo nombre completo para continuar");}
+     } catch (SQLException ex) {
+      JOptionPane.showMessageDialog(null, "No es posible eliminar este inmueble ya que esta alquilado, borre el alquiler primero");
+ }
+} else{
+            JOptionPane.showMessageDialog(null, "El nombre no es válido");
+        }                                             
+    }//GEN-LAST:event_JBt_EliminarActionPerformed
+
+    private void campoEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoEliminarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JBt_Eliminar;
+    private javax.swing.JTextField campoEliminar;
+    private javax.swing.JButton jBt_volver;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

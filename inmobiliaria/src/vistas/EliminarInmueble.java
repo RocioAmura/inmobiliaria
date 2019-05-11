@@ -76,6 +76,12 @@ public class EliminarInmueble extends javax.swing.JInternalFrame {
         Volver = new javax.swing.JButton();
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        campoEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoEliminarActionPerformed(evt);
+            }
+        });
         getContentPane().add(campoEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(299, 11, 540, 28));
 
         jLabel1.setText("Direccion del inmueble a eliminar:");
@@ -165,6 +171,10 @@ public class EliminarInmueble extends javax.swing.JInternalFrame {
         }
         
     }//GEN-LAST:event_eliminarBotonActionPerformed
+
+    private void campoEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoEliminarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

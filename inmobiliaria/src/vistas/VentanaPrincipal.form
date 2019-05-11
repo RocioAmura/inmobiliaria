@@ -17,7 +17,7 @@
         <Property name="text" type="java.lang.String" value="jMenuItem3"/>
       </Properties>
     </Component>
-    <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
+    <Menu class="javax.swing.JMenuBar" name="JItem_GestionarClientes">
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jMenu1">
           <Properties>
@@ -36,12 +36,12 @@
             <Property name="text" type="java.lang.String" value="Clientes"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem_AgregarCliente">
+            <MenuItem class="javax.swing.JMenuItem" name="jitem_GestionarClientes">
               <Properties>
-                <Property name="text" type="java.lang.String" value="AgregarCliente"/>
+                <Property name="text" type="java.lang.String" value="Gestionar clientes"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem_AgregarClienteActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jitem_GestionarClientesActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
@@ -51,12 +51,12 @@
             <Property name="text" type="java.lang.String" value="Inmuebles"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
+            <MenuItem class="javax.swing.JMenuItem" name="JItem_GestionarInmuebles">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Gestionar inmuebles"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem5ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JItem_GestionarInmueblesActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
@@ -66,10 +66,13 @@
             <Property name="text" type="java.lang.String" value="Alquileres"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
+            <MenuItem class="javax.swing.JMenuItem" name="JItem_GestionarAlquileres">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Gestionar alquileres"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JItem_GestionarAlquileresActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -80,7 +83,7 @@
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
   <SyntheticProperties>
-    <SyntheticProperty name="menuBar" type="java.lang.String" value="jMenuBar1"/>
+    <SyntheticProperty name="menuBar" type="java.lang.String" value="JItem_GestionarClientes"/>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
