@@ -53,11 +53,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 604, Short.MAX_VALUE)
+            .addGap(0, 663, Short.MAX_VALUE)
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 410, Short.MAX_VALUE)
+            .addGap(0, 461, Short.MAX_VALUE)
         );
 
         jMenu1.setText("File");
@@ -109,11 +109,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jDesktopPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jDesktopPane1)
         );
 
         pack();
@@ -124,7 +124,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         escritorio.repaint();
         GestionClientes gc = new GestionClientes();
         gc.setVisible(true);
-        escritorio.add(cl);
+        escritorio.add(gc);
     }//GEN-LAST:event_jitem_GestionarClientesActionPerformed
 
     private void JItem_GestionarInmueblesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JItem_GestionarInmueblesActionPerformed
@@ -133,7 +133,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         escritorio.repaint();
         GestionInmuebles gi = new GestionInmuebles();
         gi.setVisible(true);
-        escritorio.add(cl);
+        escritorio.add(gi);
     }//GEN-LAST:event_JItem_GestionarInmueblesActionPerformed
 
     private void JItem_GestionarAlquileresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JItem_GestionarAlquileresActionPerformed
@@ -142,7 +142,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         escritorio.repaint();
         GestionAlquileres ga = new GestionAlquileres();
         ga.setVisible(true);
-        escritorio.add(cl);
+        escritorio.add(ga);
     }//GEN-LAST:event_JItem_GestionarAlquileresActionPerformed
                  
     /**
